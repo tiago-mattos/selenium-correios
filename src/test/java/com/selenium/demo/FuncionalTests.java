@@ -2,12 +2,12 @@ package com.selenium.demo;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -41,7 +41,6 @@ public class FuncionalTests {
 
 	@Test
 	@DisplayName("Cenário 1: Rastreamento por objeto postado")
-	@Disabled
 	void rastreamentoObjetoValido() {
 		paginaRastreamento = new PaginaRastreamento(driver);
 		paginaRastreamento.abrirPaginaInicial();
@@ -54,7 +53,6 @@ public class FuncionalTests {
 
 	@Test
 	@DisplayName("Cenário 2: Rastreamento por objeto inválido")
-	@Disabled
 	void rastreamentoObjetoInvalido() {
 		paginaRastreamento = new PaginaRastreamento(driver);
 		paginaRastreamento.abrirPaginaInicial();
@@ -68,7 +66,6 @@ public class FuncionalTests {
 
 	@Test
 	@DisplayName("Cenário 3:  Cálculo de preço e prazo de entrega com dados válidos")
-	@Disabled
 	void calculoPrecoPrazoDadosValidos() {
 		paginaCalculoPrecoPrazo = new PaginaCalculoPrecoPrazo(driver);
 		paginaCalculoPrecoPrazo.abrirPaginaInicial();
@@ -94,11 +91,14 @@ public class FuncionalTests {
 	@Test
 	@DisplayName("Cenário 4:  Cálculo de preço e prazo de entrega com Cep de origem inválido")
 	void calculoPrecoPrazoDadosInvalidos() {
+		String mensagemAlerta;
+		boolean mensagemCorreta = false;
+
 		paginaCalculoPrecoPrazo = new PaginaCalculoPrecoPrazo(driver);
 		paginaCalculoPrecoPrazo.abrirPaginaInicial();
 		paginaCalculoPrecoPrazo.verificarCarregamentoPagina();
 		paginaCalculoPrecoPrazo.setDataPostagem();
-		paginaCalculoPrecoPrazo.setCepOrigem("10101010");
+		paginaCalculoPrecoPrazo.setCepOrigem("1010101");
 		paginaCalculoPrecoPrazo.setCepDestino("04711-130");
 		paginaCalculoPrecoPrazo.selectOptionServico("SEDEX");
 		paginaCalculoPrecoPrazo.setEmbalagemCaixa();
@@ -109,10 +109,21 @@ public class FuncionalTests {
 		paginaCalculoPrecoPrazo.clicarCalcular();
 		paginaCalculoPrecoPrazo.navigateNewTab();
 
-		System.out.println(paginaCalculoPrecoPrazo.getTextoAlert());
-		
+		mensagemAlerta = paginaCalculoPrecoPrazo.getTextoAlert();
 		paginaCalculoPrecoPrazo.fechaAlert();
 
+		System.out.println(mensagemAlerta);
+
+		if (mensagemAlerta == "CEP de origem não encontrado na base de dados dos Correios (-1)."
+				|| mensagemAlerta == "Cep de Origem Inválido!") {
+			mensagemCorreta = true;
+			System.out.println("Entrou If");
+
+		} else {
+			mensagemCorreta = false;
+		}
+
+		assertTrue(mensagemCorreta == true);
 	}
 
 	@AfterEach

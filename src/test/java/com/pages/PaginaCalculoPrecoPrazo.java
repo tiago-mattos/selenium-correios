@@ -132,8 +132,12 @@ public class PaginaCalculoPrecoPrazo {
 
 	public void navigateNewTab() {
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs.get(1));
 
+		if (tabs.size() > 1) {
+			driver.switchTo().window(tabs.get(1));
+		}
+
+		driver.switchTo().window(tabs.get(0));
 	}
 
 	public String getPrazoEntrega() {
