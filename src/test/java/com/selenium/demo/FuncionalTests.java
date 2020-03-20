@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -98,7 +99,7 @@ public class FuncionalTests {
 		paginaCalculoPrecoPrazo.abrirPaginaInicial();
 		paginaCalculoPrecoPrazo.verificarCarregamentoPagina();
 		paginaCalculoPrecoPrazo.setDataPostagem();
-		paginaCalculoPrecoPrazo.setCepOrigem("1010101");
+		paginaCalculoPrecoPrazo.setCepOrigem("10101010");
 		paginaCalculoPrecoPrazo.setCepDestino("04711-130");
 		paginaCalculoPrecoPrazo.selectOptionServico("SEDEX");
 		paginaCalculoPrecoPrazo.setEmbalagemCaixa();
@@ -108,22 +109,15 @@ public class FuncionalTests {
 		paginaCalculoPrecoPrazo.setServicoOpcional();
 		paginaCalculoPrecoPrazo.clicarCalcular();
 		paginaCalculoPrecoPrazo.navigateNewTab();
-
 		mensagemAlerta = paginaCalculoPrecoPrazo.getTextoAlert();
+
+		if (mensagemAlerta.equals("CEP de origem não encontrado na base de dados dos Correios (-1).")
+				|| mensagemAlerta.equals("Cep de Origem Inválido!")) {
+			mensagemCorreta = true;
+		}
 		paginaCalculoPrecoPrazo.fechaAlert();
 
-		System.out.println(mensagemAlerta);
-
-		if (mensagemAlerta == "CEP de origem não encontrado na base de dados dos Correios (-1)."
-				|| mensagemAlerta == "Cep de Origem Inválido!") {
-			mensagemCorreta = true;
-			System.out.println("Entrou If");
-
-		} else {
-			mensagemCorreta = false;
-		}
-
-		assertTrue(mensagemCorreta == true);
+		assertTrue(mensagemCorreta);
 	}
 
 	@AfterEach

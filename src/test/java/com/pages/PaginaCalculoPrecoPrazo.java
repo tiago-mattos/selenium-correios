@@ -135,9 +135,10 @@ public class PaginaCalculoPrecoPrazo {
 
 		if (tabs.size() > 1) {
 			driver.switchTo().window(tabs.get(1));
+		} else {
+			driver.switchTo().window(tabs.get(0));
 		}
 
-		driver.switchTo().window(tabs.get(0));
 	}
 
 	public String getPrazoEntrega() {
