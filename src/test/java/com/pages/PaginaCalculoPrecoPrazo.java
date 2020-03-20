@@ -2,6 +2,7 @@ package com.pages;
 
 import java.util.ArrayList;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -141,5 +142,17 @@ public class PaginaCalculoPrecoPrazo {
 
 	public String getValorEntrega() {
 		return valorEntrega.getText().trim();
+	}
+
+	public String getTextoAlert() {
+		Alert alert = driver.switchTo().alert();
+		return alert.getText();
+
+	}
+
+	public void fechaAlert() {
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+
 	}
 }

@@ -68,6 +68,7 @@ public class FuncionalTests {
 
 	@Test
 	@DisplayName("Cenário 3:  Cálculo de preço e prazo de entrega com dados válidos")
+	@Disabled
 	void calculoPrecoPrazoDadosValidos() {
 		paginaCalculoPrecoPrazo = new PaginaCalculoPrecoPrazo(driver);
 		paginaCalculoPrecoPrazo.abrirPaginaInicial();
@@ -83,13 +84,34 @@ public class FuncionalTests {
 		paginaCalculoPrecoPrazo.setServicoOpcional();
 		paginaCalculoPrecoPrazo.clicarCalcular();
 		paginaCalculoPrecoPrazo.navigateNewTab();
-		
-		System.out.println(paginaCalculoPrecoPrazo.getPrazoEntrega());
-		System.out.println(paginaCalculoPrecoPrazo.getValorEntrega());
 
 		assertAll("Prazo/Preço",
 				() -> assertEquals("Dia da Postagem + 7 dias úteis", paginaCalculoPrecoPrazo.getPrazoEntrega()),
 				() -> assertEquals("R$ 53,30", paginaCalculoPrecoPrazo.getValorEntrega()));
+
+	}
+
+	@Test
+	@DisplayName("Cenário 4:  Cálculo de preço e prazo de entrega com Cep de origem inválido")
+	void calculoPrecoPrazoDadosInvalidos() {
+		paginaCalculoPrecoPrazo = new PaginaCalculoPrecoPrazo(driver);
+		paginaCalculoPrecoPrazo.abrirPaginaInicial();
+		paginaCalculoPrecoPrazo.verificarCarregamentoPagina();
+		paginaCalculoPrecoPrazo.setDataPostagem();
+		paginaCalculoPrecoPrazo.setCepOrigem("10101010");
+		paginaCalculoPrecoPrazo.setCepDestino("04711-130");
+		paginaCalculoPrecoPrazo.selectOptionServico("SEDEX");
+		paginaCalculoPrecoPrazo.setEmbalagemCaixa();
+		paginaCalculoPrecoPrazo.selectOptionEmbalagem("Outra Embalagem");
+		paginaCalculoPrecoPrazo.setDimensoes(9, 18, 27);
+		paginaCalculoPrecoPrazo.selectOptionPesoEstimado(2);
+		paginaCalculoPrecoPrazo.setServicoOpcional();
+		paginaCalculoPrecoPrazo.clicarCalcular();
+		paginaCalculoPrecoPrazo.navigateNewTab();
+
+		System.out.println(paginaCalculoPrecoPrazo.getTextoAlert());
+		
+		paginaCalculoPrecoPrazo.fechaAlert();
 
 	}
 
