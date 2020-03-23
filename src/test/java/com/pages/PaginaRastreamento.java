@@ -4,11 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PaginaRastreamento {
 	WebDriver driver;
 
-	private String urlPagina = "https://www2.correios.com.br/sistemas/rastreamento/default.cfm"	;
+	private String urlPagina = "https://www2.correios.com.br/sistemas/rastreamento/default.cfm";
 
 	@FindBy(id = "objetos")
 	private WebElement textareaObjeto;

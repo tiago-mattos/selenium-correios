@@ -28,11 +28,35 @@ public class Utility {
 
 		return path;
 	}
-	
-	public static String getDataAtual() { 
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
-		Date date = new Date(); 
-		return dateFormat.format(date); 
+
+	public static String getScreenshotDate(WebDriver driver, String nomeArquivo) {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+
+		File src = ts.getScreenshotAs(OutputType.FILE);
+
+		String path = System.getProperty("user.dir") + "/screenshots/" + nomeArquivo + " " + getDataAtualMinutos()
+				+ ".png";
+		File destination = new File(path);
+		try {
+			FileHandler.copy(src, destination);
+
+		} catch (IOException e) {
+			System.out.println("Falha na Captura da Imagem " + e.getMessage());
+		}
+
+		return path;
+	}
+
+	public static String getDataAtual() {
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+
+	public static String getDataAtualMinutos() {
+		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
+		Date date = new Date();
+		return dateFormat.format(date);
 	}
 
 }

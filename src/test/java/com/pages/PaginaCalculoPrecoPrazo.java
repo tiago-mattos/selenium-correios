@@ -7,13 +7,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.utils.Utility;
 
 public class PaginaCalculoPrecoPrazo {
 
 	WebDriver driver;
+	WebDriverWait wait = new WebDriverWait(driver, 15);
 
 	private String urlPagina = "https://www2.correios.com.br/sistemas/precosPrazos";
 
@@ -150,6 +153,7 @@ public class PaginaCalculoPrecoPrazo {
 	}
 
 	public String getTextoAlert() {
+		wait.until(ExpectedConditions.alertIsPresent());
 		Alert alert = driver.switchTo().alert();
 		return alert.getText();
 

@@ -5,15 +5,23 @@ Funcionalidade: Rastreamento por objeto ou CPF/CNPJ
   Para que eu possa acompanhar o andamento da entrega
 
   Cenario: Rastreamento por objeto postado
-    Dado que acesso o site dos Correios
-    Quando clico no link "Busca CEP"
-    Entao deveria visualizar "CEP por localidade | Logradouro"
-    Quando clico no link "CEP por localidade | Logradouro"
-    Entao deveria visualizar "Busca CEP - Localidade / Logradouro"
-    Quando seleciono "CE" no campo UF
-    E digito "Fortaleza" no campo Localidade
-    E seleciono "Rua" no campo Tipo
-    E digito "Senador Pompeu" no campo Logradouro
-    E digito "2508" no campo Numero
+    Dado que acesso a página de rastreamento dos Correios
+    Quando informo o objeto "JY183171564BR" no campo de entrada de codigos
     E clico no botao Buscar
-    Entao deveria visualizar "Condomínio Liege"
+    Entao deveria visualizar o status "Entregue 20/02/2020"
+
+  Cenario: Rastreamento por objeto inválido
+    Dado que acesso a página de rastreamento dos Correios
+    Quando informo o objeto "AA123456789BR" no campo de entrada de codigos
+    E clico no botao Buscar
+    Entao deveria visualizar a mensagem "Aguardando postagem pelo remetente."
+
+  Cenario: Rastreamento por objeto em branco
+    Dado que acesso a página de rastreamento dos Correios
+    Quando clico no botao Buscar
+    Entao deveria visualizar a mensagem "Por favor, digite de um a 50 códigos de objetos, ou um CPF/CNPJ válido"
+
+  Cenario: Rastreamento por número objeto inválido
+    Dado que acesso a página de rastreamento dos Correios
+    Quando clico no botao Buscar
+    Entao deveria visualizar a mensagem "O(s) código(s) ou CPF/CNPJ estão inválidos"
