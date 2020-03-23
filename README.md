@@ -2,13 +2,30 @@
 # Excecução
 
 Clonar repositório
-
+```bash
+git clone https://github.com/tiago-mattos/selenium-correios.git
+```
 Executar comando:
 
 ```bash
 mvn clean install
 ```
 
+# Entregáveis
+#### Cenários BDD
+```bash
+./src/test/java/com/features
+```
+
+#### Scripts Testes Automatizados (Selenium)
+```bash
+./src/test/java/com/selenium/demo/FuncionalTests.java
+```
+
+#### SOAP Testes
+```bash
+./soap/Calculo-Preco-Prazo-soapui-project.xml
+```
 # Cenários
 
 ```bash

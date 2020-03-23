@@ -1792,9 +1792,9 @@
    <soapenv:Body>
       <tem:CalcPrecoPrazo>
          <!--Optional:-->
-         <tem:nCdEmpresa>?</tem:nCdEmpresa>
+         <tem:nCdEmpresa></tem:nCdEmpresa>
          <!--Optional:-->
-         <tem:sDsSenha>?</tem:sDsSenha>
+         <tem:sDsSenha></tem:sDsSenha>
          <!--Optional:-->
          <tem:nCdServico>04014</tem:nCdServico>
          <!--Optional:-->
@@ -1815,14 +1815,14 @@
          <tem:sCdAvisoRecebimento>N</tem:sCdAvisoRecebimento>
       </tem:CalcPrecoPrazo>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8d001ff0-4f1d-4f5c-83f4-feab57680b26" name="SOAP Response"/><con:assertion type="Simple Contains" id="c25ace10-2b3d-4086-9e7e-369e908ea0b6" name="Prazo Entrega"><con:configuration><token>&lt;PrazoEntrega>7&lt;/PrazoEntrega></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="ebf8ce1a-fce7-4643-b177-2602db01994b" name="Valor"><con:configuration><token>53,30</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/CalcPrecoPrazo"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="181a8e9f-ddb8-47e0-a253-e6ef412d8c44" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CalculoPrecoPrazoDadosInvalidos" searchProperties="true"><con:settings/><con:testStep type="request" id="316381e0-619e-4098-a433-d2629ce91735" name="CalcPrecoPrazo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalcPrecoPrazoWSSoap</con:interface><con:operation>CalcPrecoPrazo</con:operation><con:request name="CalcPrecoPrazo" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f9664181-bfa8-451e-b4c0-2190117449f2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="8d001ff0-4f1d-4f5c-83f4-feab57680b26" name="SOAP Response"/><con:assertion type="Simple Contains" id="c25ace10-2b3d-4086-9e7e-369e908ea0b6" name="Prazo Entrega"><con:configuration><token>&lt;PrazoEntrega>7&lt;/PrazoEntrega></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="ebf8ce1a-fce7-4643-b177-2602db01994b" name="Valor"><con:configuration><token>&lt;Valor>53,30&lt;/Valor></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/CalcPrecoPrazo"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="181a8e9f-ddb8-47e0-a253-e6ef412d8c44" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CalculoPrecoPrazoDadosInvalidos" searchProperties="true"><con:settings/><con:testStep type="request" id="316381e0-619e-4098-a433-d2629ce91735" name="CalcPrecoPrazo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CalcPrecoPrazoWSSoap</con:interface><con:operation>CalcPrecoPrazo</con:operation><con:request name="CalcPrecoPrazo" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f9664181-bfa8-451e-b4c0-2190117449f2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
    <soapenv:Header/>
    <soapenv:Body>
       <tem:CalcPrecoPrazo>
          <!--Optional:-->
-         <tem:nCdEmpresa>?</tem:nCdEmpresa>
+         <tem:nCdEmpresa></tem:nCdEmpresa>
          <!--Optional:-->
-         <tem:sDsSenha>?</tem:sDsSenha>
+         <tem:sDsSenha></tem:sDsSenha>
          <!--Optional:-->
          <tem:nCdServico>04014</tem:nCdServico>
          <!--Optional:-->
@@ -1843,4 +1843,4 @@
          <tem:sCdAvisoRecebimento>N</tem:sCdAvisoRecebimento>
       </tem:CalcPrecoPrazo>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5df64918-67f1-48eb-bb6f-e583836fb56e" name="SOAP Response"/><con:assertion type="Simple Contains" id="58ed7bee-3e71-44ea-ac44-87abe2f6e68a" name="Contains"><con:configuration><token>CEP de origem invalido</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/CalcPrecoPrazo"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5df64918-67f1-48eb-bb6f-e583836fb56e" name="SOAP Response"/><con:assertion type="Simple Contains" id="58ed7bee-3e71-44ea-ac44-87abe2f6e68a" name="Contains"><con:configuration><token>&lt;MsgErro>CEP de origem invalido.&lt;/MsgErro></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/CalcPrecoPrazo"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
