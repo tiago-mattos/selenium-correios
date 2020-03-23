@@ -16,7 +16,7 @@ import com.utils.Utility;
 public class PaginaCalculoPrecoPrazo {
 
 	WebDriver driver;
-	WebDriverWait wait = new WebDriverWait(driver, 15);
+	WebDriverWait wait;
 
 	private String urlPagina = "https://www2.correios.com.br/sistemas/precosPrazos";
 
@@ -153,7 +153,7 @@ public class PaginaCalculoPrecoPrazo {
 	}
 
 	public String getTextoAlert() {
-		wait.until(ExpectedConditions.alertIsPresent());
+		//wait.until(ExpectedConditions.alertIsPresent());
 		Alert alert = driver.switchTo().alert();
 		return alert.getText();
 

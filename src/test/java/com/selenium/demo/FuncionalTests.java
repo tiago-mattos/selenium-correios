@@ -101,8 +101,7 @@ public class FuncionalTests {
 	@Order(4)
 	@DisplayName("Cenário 4:  Cálculo de preço e prazo de entrega com Cep de origem inválido")
 	void calculoPrecoPrazoDadosInvalidos() {
-		String mensagemAlerta;
-		boolean mensagemCorreta = false;
+
 		paginaCalculoPrecoPrazo = new PaginaCalculoPrecoPrazo(driver);
 		paginaCalculoPrecoPrazo.abrirPaginaInicial();
 		paginaCalculoPrecoPrazo.verificarCarregamentoPagina();
@@ -117,17 +116,11 @@ public class FuncionalTests {
 		paginaCalculoPrecoPrazo.setServicoOpcional();
 		paginaCalculoPrecoPrazo.clicarCalcular();
 		paginaCalculoPrecoPrazo.navigateNewTab();
-
-		mensagemAlerta = paginaCalculoPrecoPrazo.getTextoAlert();
-
-		if (mensagemAlerta.equals("CEP de origem não encontrado na base de dados dos Correios (-1).")
-				|| mensagemAlerta.equals("Cep de Origem Inválido!")) {
-			mensagemCorreta = true;
-		}
-
+		String mensagemRetornada = paginaCalculoPrecoPrazo.getTextoAlert();
 		paginaCalculoPrecoPrazo.fechaAlert();
 
-		assertTrue(mensagemCorreta);
+		assertEquals("CEP de origem não encontrado na base de dados dos Correios (-1).", mensagemRetornada);
+
 	}
 
 	@AfterEach
