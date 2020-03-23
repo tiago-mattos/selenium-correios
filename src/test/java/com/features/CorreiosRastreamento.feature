@@ -1,6 +1,6 @@
 # language: pt
 Funcionalidade: Rastreamento por objeto ou CPF/CNPJ
-  Como usuário do sistema, 
+  Como usuário do sistema
   Eu quero consultar as informações sobre uma entrega do correio
   Para que eu possa acompanhar o andamento da entrega
 
